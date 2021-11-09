@@ -1,0 +1,115 @@
+﻿
+@model IEnumerable<Basic_level2_agan.Models.Blog>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>list blogs</title>
+    <style>
+        .edt {
+            border: 1px solid green;
+        }
+
+        .del {
+            border: 1px solid red;
+        }
+
+        .text {
+            color: green;
+            text-decoration: none;
+        }
+
+        .text2 {
+            color: red;
+            text-decoration: none;
+        }
+        .card-body
+        {
+            padding-left:0px!important;
+        }
+    </style>
+
+</head>
+<body >
+    <div style="background:white;">
+        
+        <div class="card" style="background:#696969;padding-left:15px;padding-right:15px;">
+            <div class="row" style="margin-left:10px;margin-right:10px;padding-top:10px;">
+                <div class="card-header col-md-12" style="background:#CCCCCC;">
+                    <h3 style="margin:0px!important;padding-right:0px!important;">List Blogs</h3>
+                </div>
+                <div class="card-body rol-md-12 ">
+
+                    <table class="table" border="1 solid black" style="background:white;">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.tin)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.loai)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.trangThai)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.viTri)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ngayPublic)
+                            </th>
+                            <th>
+                                Edit
+                            </th>
+                            <th>
+                                Delete
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tin)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.loai)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.trangThai)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.viTri)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ngayPublic)
+                            </td>
+                            <td>
+                                <button class="edt">
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "text" })
+
+                                </button>
+
+                            </td>
+                            <td>
+                                <button class="del">
+                                  
+                                    @Html.ActionLink("Delete", "Delete2",new { id=item.id})
+                                </button>
+
+                            </td>
+                        </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+         </div>
+    </div>
+</body>
+</html>
+
